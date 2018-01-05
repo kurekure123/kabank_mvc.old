@@ -1,0 +1,7 @@
+@charset "UTF-8";
+#header{style="text-align: center;"}
+#admin_aside{float : left; width: 15%; height : 500px ;border: 1px solid grey;}
+#admin_section{float : center; width : 70%;height : 500px; margin: 0px auto; border : 1px solid grey;}
+#admin_table{padding-top : 100px; width: 70%;margin : 100px auto;}
+#admin_table tr{width : 30%; margin: 0px auto; border : 1px solid grey;}
+#admin_table td{width : 20%; height  : 80px; margin: 0px auto; border : 1px solid grey;}
