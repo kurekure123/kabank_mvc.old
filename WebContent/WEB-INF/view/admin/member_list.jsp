@@ -3,14 +3,6 @@
 <%@ page import = "java.sql.*" %>
 <%@ page import="java.util.*" %>
 
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin.css" />
-	<link rel="stylesheet" href=".${pageContext.request.contextPath}/resources/css/common.css" />
-</head>
 <body>
 <div id="wrapper">
 <header>

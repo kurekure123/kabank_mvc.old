@@ -8,13 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kabank.mvc.constants.Path;
 import com.kabank.mvc.domain.MemberBean;
 import com.kabank.mvc.service.MemberService;
 import com.kabank.mvc.serviceimpl.MemberServiceImpl;
 
-@WebServlet( {"/user/login.do" , "/user/join.do", "/user/auth.do"})
+@WebServlet( {"/user/login.do" , "/user/join.do", "/user/auth.do", "/user/signup.do",
+	 "/user/add.do"})
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L; // 직렬화 1L의 l 은 long type
 
@@ -36,6 +38,8 @@ public class MemberController extends HttpServlet {
 		String id = request.getServletPath().split(Path.SEPARATOR)[2].split(Path.DOT)[0];
 		String dest = "";
 		MemberBean m = new MemberBean();
+		HttpSession session = request.getSession();
+		MemberService service = MemberServiceImpl.getInstance();
 		switch(id) {
 		case "login" :
 			dest = id;
@@ -46,16 +50,28 @@ public class MemberController extends HttpServlet {
 		case "auth" :
 			m.setId(request.getParameter("id"));
 			m.setPass(request.getParameter("pass"));
-			MemberService service = new MemberServiceImpl();
-			boolean flag = service.login(m);
-			if(flag) {
+			MemberBean member = service.findMemberById(m);
+			if(member!=null) {
 				dir = "bitcamp";
 				dest = "main";
+				session.setAttribute("user", member);
 			}else {
+				dir = "user";
 				dest = "login";
 			}
-			
+			break;
+		case "signup" :	
+			m.setId(request.getParameter("id"));
+			m.setPass(request.getParameter("pass"));
+			m.setName(request.getParameter("name"));
+			m.setSsn(request.getParameter("ssn"));
+			m.setEmail(request.getParameter("email"));
+			m.setPhone(request.getParameter("phone"));
+			m.setAddress(request.getParameter("addr"));
 			//dest = "/WEB-INF/view/bitcamp/main.jsp";
+			service.addMember(m);
+			dest = "login";
+			break;
 		} 
 		
 		request.getRequestDispatcher(Path.VIEW + dir + Path.SEPARATOR + dest + Path.EXTENSION).forward(request, response);

@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding ="UTF-8"%>
-<!doctype html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8" />
-	<title>index</title>
-    <link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/index.css" />
-    <link rel="stylesheet" href="<%=application.getContextPath()%>/resources/css/common.css" />
-</head>
+<%@ include file="../common/header.jsp" %> 
 <body>
 
 <div id = "wrapper">
@@ -22,7 +14,7 @@
 	<table id="index_table">
 		<tr>
 		<td colspan="5">
-		<form id="login_form" action="${pageContext.request.contextPath}/user/auth.do">
+		<form id="login_form" action="${ctx}/user/auth.do">
 			 <table id = "index_login_box">
 					<tr>
 						<td>
@@ -60,12 +52,12 @@
 	document.querySelector('#go_join_link').addEventListener('click', 
 	function() {
 	alert('클릭');
-	location.href = "${pageContext.request.contextPath}/user/join.do "
+	location.href = "${ctx}/user/join.do "
 	} , false)
 	document.querySelector('#go_jdbc_link').addEventListener('click', 
 	function() {
 	alert('체크')
-	location.href = "${pageContext.request.contextPath}/common/jdbc_test.do"
+	location.href = "${ctx}/common/jdbc_test.do"
 	} , false);
 	
 	document.querySelector('#index_login_btn').addEventListener('click', 
@@ -75,7 +67,7 @@
 	
 	document.querySelector('#go_admin_link').addEventListener('click', 
 			function(){
-			location.href = "${pageContext.request.contextPath}/admin/main.do"
+			location.href = "${ctx}/admin/main.do"
 	}, false);
 	
 	

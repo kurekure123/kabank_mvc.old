@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
-<!doctype html>
-<html lang="en">
-<%@ include file="../common/head.jsp" %>
 	<body>
 <%@ include file ="../common/header.jsp" %>
 <%@ include file="../common/nav.jsp" %>
@@ -43,11 +40,40 @@ try{
 
 %>
 
-<div id = "wrapper">
+<div>
 <section>
 <h1> 비트 캠프</h1>
 <article>
-<table id = "no" style="height : 100%;margin : 50px auto; border: 1px solid grey;">
+<div>
+	<table id="bitcamp_profile_table">
+		<tr id="bitcamp_profile_table tr">
+			<td rowspan="4" class="photo"><img src="" width="170px" height="170px" alt="" /></td>
+			<td class="column1">ID</td>
+			<td class="column2">${sessionScope.user.id}</td>
+			<td class="column1">생년</td>
+			<td class="column2"></td>
+		</tr>
+		<tr>
+			<td class="column1">Password</td>
+			<td>${sessionScope.user.pass}</td>
+			<td class="column1">전화번호</td>
+			<td>${sessionScope.user.phone}</td>
+		</tr>
+		<tr>
+			<td class="column1">이름</td>
+			<td>${sessionScope.user.name}</td>
+			<td class="column1">이메일</td>
+			<td>${sessionScope.user.email}</td>
+		</tr>
+		<tr>
+			<td class="column1">성별</td>
+			<td>남자</td>
+			<td class="column1">주소</td>
+			<td></td>
+		</tr>
+	</table>
+</div>
+<table id = "no" style="width : 90%; height : 100%;margin : 50px auto; border: 1px solid grey;">
 	<tr style=" height : 5%;margin : 50px auto; ">
 		<th>상태</th>
 		<th>월</th>
@@ -56,7 +82,7 @@ try{
 		<th>목</th>
 		<th>금</th>
 	</tr>
-	<tr>
+	<tr id="bitcamp_attend">
 		<td>
 			<p>출석 여부</p>
 		</td>
@@ -118,5 +144,4 @@ try{
 </div>
 <%@ include file="../common/footer.jsp" %>
 </body>
-<script src="../../js/bitcamp/bitcamp.js"></script>
 </html>

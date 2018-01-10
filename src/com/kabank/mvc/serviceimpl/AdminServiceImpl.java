@@ -8,6 +8,7 @@ import com.kabank.mvc.dao.AdminDAO;
 import com.kabank.mvc.dapImpl.AdminDAOImpl;
 import com.kabank.mvc.domain.AdminBean;
 import com.kabank.mvc.domain.MemberBean;
+import com.kabank.mvc.enums.DDLEnum;
 import com.kabank.mvc.service.AdminService;
 
 public class AdminServiceImpl implements AdminService{
@@ -20,10 +21,10 @@ public class AdminServiceImpl implements AdminService{
 		String sql = "";
 		switch(tname) {
 			case "member" : 
-				sql = AdminSql.CREAT_MEMBER;
+				sql = DDLEnum.CREATE_TABLE_MEMBER.toString();
 				break;
 			case "attend" :
-				sql = AdminSql.CREAT_ATTEND;
+				sql = DDLEnum.CREATE_TABLE_ATTEND.toString();
 				break;
 		}
 		admindao.createTable(sql);

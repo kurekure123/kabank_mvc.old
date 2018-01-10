@@ -4,6 +4,8 @@ import com.kabank.mvc.domain.MemberBean;
 
 public interface MemberService {
 
-	public boolean login(MemberBean m);
+	public void addMember(MemberBean m);
+
+	public MemberBean findMemberById(MemberBean m);
 
 }

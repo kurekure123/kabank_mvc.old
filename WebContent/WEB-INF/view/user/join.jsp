@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../common/head.jsp" %>
 <body>
 <div>
 
@@ -9,7 +8,7 @@
 	
 <section  id = "members_section">
 	<article>
-	<form id="join_form" action="${pageContext.request.contextPath}/user/login.do" >
+	<form id="join_form" action="${pageContext.request.contextPath}/user/signup.do" >
 		<table id = "members_table">
 			<tr >
 				<td >

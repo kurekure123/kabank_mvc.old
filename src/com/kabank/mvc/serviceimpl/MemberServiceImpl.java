@@ -7,19 +7,29 @@ import com.kabank.mvc.service.MemberService;
 import java.util.*;
 
 public class MemberServiceImpl implements MemberService{
+	MemberDAO dao; 
+	
+	
+	public static MemberService getInstance() {
+		return new MemberServiceImpl();
+	}
+	private MemberServiceImpl() {
+		dao = MemberDAOImpl.getInstance();
+	}
+	
 	
 	@Override
-	public boolean login(MemberBean m) {
-		boolean flag = false;
-		MemberDAO dao = new MemberDAOImpl();
-		List<MemberBean> list = dao.selectMembers();
-		for(int i = 0; i < list.size(); i++) {
-			if(m.getId().equals(list.get(i).getId()) && m.getPass().equals(list.get(i).getPass())) {
-				flag = true;
-			}
-		}
+	public MemberBean findMemberById(MemberBean m) {
 		//for(){if() {}else {}}
-		return flag;
+		return dao.selectMemberById(m);
 	}
+
+	@Override
+	public void addMember(MemberBean m) {
+		dao.addMembers(m);
+		
+	}
+
+
 
 }
