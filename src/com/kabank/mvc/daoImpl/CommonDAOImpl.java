@@ -1,4 +1,4 @@
-package com.kabank.mvc.dapImpl;
+package com.kabank.mvc.daoImpl;
 
 import com.kabank.mvc.dao.CommonDAO;
 import java.sql.*;

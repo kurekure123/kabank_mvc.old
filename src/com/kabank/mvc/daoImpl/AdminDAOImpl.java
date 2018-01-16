@@ -1,4 +1,4 @@
-package com.kabank.mvc.dapImpl;
+package com.kabank.mvc.daoImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class AdminDAOImpl implements AdminDAO {
 		try {
 			StringBuffer name = new StringBuffer(DMLEnum.SELECT.toString())
 					.insert(6,  "*").append(TNameEnum.MEMBER);
-		rs = DatabaseFactory.createDatabase(Vendor.ORACLE)
+		rs = DatabaseFactory.create(Vendor.ORACLE)
 				.getConnection().createStatement().executeQuery(name.toString());
 			List<String> list = new ArrayList<>();
 			System.out.println(sql);

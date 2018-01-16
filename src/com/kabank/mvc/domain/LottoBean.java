@@ -1,16 +1,11 @@
 package com.kabank.mvc.domain;
 
+import lombok.Data;
+
+@Data
 public class LottoBean {
 	private String LottoNum;
 	
-	public void setLottoNum(String lottoNum) {
-		LottoNum = lottoNum;
-	}
-
-	public String getLottoNum() {
-		return LottoNum;
-	}
-
 	
 	
 }

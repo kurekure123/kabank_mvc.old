@@ -14,11 +14,11 @@
 	<table id="index_table">
 		<tr>
 		<td colspan="5">
-		<form id="login_form" action="${ctx}/user/auth.do">
+		<form id="login_form" action="${ctx}/user.do">
 			 <table id = "index_login_box">
 					<tr>
 						<td>
-							<input id="index_input_id" name ="id" type="text" placeholder="아이디">
+							<input id="index_input_id" name ="id" type="text" value="kurekure123" placeholder="아이디">
 						</td>
 	   					 <td rowspan= "2">
 	   					 	<input id = "index_login_btn" type="submit" value="로그인" 	>
@@ -26,7 +26,10 @@
 					</tr>
 					<tr>
 						<td >
-							<input id= "index_input_pass" name = "pass" type="text" placeholder="비밀번호">
+							<input id= "index_input_pass" name = "pass" type="password" value="24865" placeholder="비밀번호">
+							<input type="hidden" name = "cmd" value="login" />
+							<input type="hidden" name = "dir" value="bitcamp" />
+							<input type="hidden" name = "page" value="main" />
 						</td>
 					</tr>
 				
@@ -52,12 +55,12 @@
 	document.querySelector('#go_join_link').addEventListener('click', 
 	function() {
 	alert('클릭');
-	location.href = "${ctx}/user/join.do "
+	location.href = "${ctx}/user.do?cmd=move&page=join"
 	} , false)
 	document.querySelector('#go_jdbc_link').addEventListener('click', 
 	function() {
 	alert('체크')
-	location.href = "${ctx}/common/jdbc_test.do"
+	location.href = "${ctx}/common.do?cmd=move&page=jdbc_test"
 	} , false);
 	
 	document.querySelector('#index_login_btn').addEventListener('click', 
@@ -66,8 +69,8 @@
 	}, false);
 	
 	document.querySelector('#go_admin_link').addEventListener('click', 
-			function(){
-			location.href = "${ctx}/admin/main.do"
+		function(){
+		location.href = "${ctx}/admin.do?cmd=login&dir=bitcamp&page=main"
 	}, false);
 	
 	

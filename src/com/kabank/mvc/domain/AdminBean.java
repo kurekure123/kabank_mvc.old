@@ -1,13 +1,9 @@
 package com.kabank.mvc.domain;
 
+import lombok.Data;
+
+@Data
 public class AdminBean {
 	private String table;
 
-	public String getTable() {
-		return table;
-	}
-
-	public void setTable(String table) {
-		this.table = table;
-	}
 }

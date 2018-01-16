@@ -1,7 +1,7 @@
 package com.kabank.mvc.serviceimpl;
 
 import com.kabank.mvc.dao.CommonDAO;
-import com.kabank.mvc.dapImpl.CommonDAOImpl;
+import com.kabank.mvc.daoImpl.CommonDAOImpl;
 import com.kabank.mvc.service.CommonService;
 
 public class CommonServiceImpl implements CommonService{

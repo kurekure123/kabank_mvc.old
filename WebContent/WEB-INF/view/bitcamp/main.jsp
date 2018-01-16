@@ -51,7 +51,7 @@ try{
 			<td class="column1">ID</td>
 			<td class="column2">${sessionScope.user.id}</td>
 			<td class="column1">생년</td>
-			<td class="column2"></td>
+			<td class="column2">${sessionScope.user.ssn}</td>
 		</tr>
 		<tr>
 			<td class="column1">Password</td>
@@ -69,7 +69,7 @@ try{
 			<td class="column1">성별</td>
 			<td>남자</td>
 			<td class="column1">주소</td>
-			<td></td>
+			<td>${sessionScope.user.address}</td>
 		</tr>
 	</table>
 </div>
@@ -138,10 +138,24 @@ try{
 </table>
 	<input type="hidden" name = "id" value="kurekure123" />
 	<button id="attend" style="width: 200px" >제출</button>
+	<button id="change_pass" style="width: 200px" >비밀번호 변경</button>
+	<button id="withdraw" style="width: 200px" >탈퇴</button>
 
 </article>
 </section>
 </div>
 <%@ include file="../common/footer.jsp" %>
 </body>
+<script>
+	document.querySelector('#change_pass').addEventListener('click',
+			function () {
+			location.href="${ctx}/user.do?cmd=move&dir=bitcamp&page=change";
+			}
+			,false)
+	document.querySelector('#withdraw').addEventListener('click', 
+			function() {
+				location.href="${ctx}/user.do?cmd=withdraw"
+			}
+			, false)
+</script>
 </html>

@@ -8,7 +8,7 @@
 	
 <section  id = "members_section">
 	<article>
-	<form id="join_form" action="${pageContext.request.contextPath}/user/signup.do" >
+	<form id="join_form" action="${pageContext.request.contextPath}/user.do?cmd=move&page=add" >
 		<table id = "members_table">
 			<tr >
 				<td >

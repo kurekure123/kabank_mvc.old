@@ -15,20 +15,23 @@ import com.kabank.mvc.domain.MemberBean;
 import com.kabank.mvc.service.AdminService;
 import com.kabank.mvc.serviceimpl.AdminServiceImpl;
 
-@WebServlet({"/admin/main.do" , "/admin/create_table.do"})
+@WebServlet("/admin.do")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L; // 직렬화 1L의 l 은 long type
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AdminService service = new AdminServiceImpl();
-		String dir = request.getServletPath().split(Path.SEPARATOR)[1]; 
-		String id = request.getServletPath().split(Path.SEPARATOR)[2].split(Path.DOT)[0];
+		String dir = request.getServletPath().substring(1, 6); 
+		//1이상 6 미만
+		String cmd = request.getParameter("cmd");
+		String page = request.getParameter("page");
+				
 		String dest = "";
-		AdminBean m = new AdminBean();
-		switch(id) {
+		if(cmd.equals("move")) {
+		switch(page) {
 		case "main" :
-			dest = id;
+			dest = page;
 			break;
 		case "create_table" :
 			dest = "main";
@@ -36,6 +39,7 @@ public class AdminController extends HttpServlet {
 		}
 		request.getRequestDispatcher(Path.VIEW + dir + Path.SEPARATOR + dest + Path.EXTENSION).forward(request, response);
 	}
+	}	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

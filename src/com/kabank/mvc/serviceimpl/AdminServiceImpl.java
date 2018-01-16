@@ -5,7 +5,7 @@ import java.util.List;
 import com.kabank.mvc.constants.AdminSql;
 import com.kabank.mvc.controller.AdminController;
 import com.kabank.mvc.dao.AdminDAO;
-import com.kabank.mvc.dapImpl.AdminDAOImpl;
+import com.kabank.mvc.daoImpl.AdminDAOImpl;
 import com.kabank.mvc.domain.AdminBean;
 import com.kabank.mvc.domain.MemberBean;
 import com.kabank.mvc.enums.DDLEnum;
